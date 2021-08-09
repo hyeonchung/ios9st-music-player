@@ -32,7 +32,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
 
-        let track = trackManager.track(at: indexPath.item)
+        // MARK: 헤더뷰 데이터 연동 ... trackAlbum 함수 이용 (O)
+        let track = trackManager.trackAlbum(at: indexPath.item)
+        print("헤더뷰 let track = \(track), indexPath: \(indexPath), indexPath.item: \(indexPath.item)")
         cell.updateHeaderUI(item: track)
 
         return cell
@@ -88,8 +90,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackTableViewCell", for: indexPath) as? TrackTableViewCell else {
             return UITableViewCell()
         }
-
-        let track = trackManager.track(at: indexPath.item)
+        // MARK: 하단 테이블뷰  데이터 연동 ... trackSongs 함수 이용 (O)
+        let track = trackManager.trackSong(at: indexPath.item)
+        print("테이블뷰 let track = \(track)")
         cell.updateTableUI(item: track)
         return cell
     }

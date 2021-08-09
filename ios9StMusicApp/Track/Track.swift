@@ -38,7 +38,7 @@ struct Track {
 }
 
 // 앨범 정보에 대한 모델
-// MARK: 추가 시간도 넣고싶음
+// MARK: 이 곡을 추가한 시간도 넣고싶음
 
 struct Album {
     let title: String
